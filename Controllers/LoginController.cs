@@ -14,14 +14,18 @@ using Microsoft.AspNetCore.Identity;
 using System.Web.Security;
 using System.Web.UI.WebControls;
 
+
  namespace ExoGym.Controllers
 {
     public class LoginController : Controller
     {
         membersEntities db = new membersEntities();
 
-        SqlConnection con = new SqlConnection(@"data source = (localdb)\ProjectModels; Integrated Security = SSPI");
-        SqlCommand cmd = new SqlCommand();
+
+        public ActionResult Home()
+        {
+            return View();
+        }
 
         // GET: Login/Create
         [HttpGet]
@@ -30,6 +34,7 @@ using System.Web.UI.WebControls;
             return View();
         }
 
+        // POST LOGIN
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(membersdata membersdata)
@@ -38,9 +43,8 @@ using System.Web.UI.WebControls;
             if (user != null)
             {
                 Session["Name"] = user.Name.ToString();
-                string Id = user.Id.ToString();
-                
-                return View("Home");
+                Session["id"] = user.Id.ToString();
+                return View("Home");  
             }
             else
             {
@@ -49,11 +53,11 @@ using System.Web.UI.WebControls;
             };
         }
         
-       
+       // LOGOUT
         public ActionResult Logout()
         {
             Session.Clear();
-            return RedirectToAction("Index","Home");
+            return RedirectToAction("Home");
         }
 
        

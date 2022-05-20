@@ -15,11 +15,12 @@ namespace ExoGym.Controllers
     public class membersdatasController : Controller
     {
         membersEntities db = new membersEntities();
+       
         // GET: membersdatas
         public async Task<ActionResult> Index()
         {
             return View(await db.membersdatas.ToListAsync());
-        }
+        } 
 
         // GET: membersdatas/Details/5
         public async Task<ActionResult> Details(int? id)
@@ -43,8 +44,7 @@ namespace ExoGym.Controllers
         }
 
         // POST: membersdatas/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Register([Bind(Include = "Id,username,password,Name,Mobile,Address")] membersdata membersdata)
@@ -59,7 +59,7 @@ namespace ExoGym.Controllers
             return View(membersdata);
         }
 
-        // GET: membersdatas/Edit/5
+        // GET: EDIT
         public async Task<ActionResult> Edit(int? id)
         {
             if (id == null)
@@ -74,9 +74,7 @@ namespace ExoGym.Controllers
             return View(membersdata);
         }
 
-        // POST: membersdatas/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
+        // POST EDIT
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Edit([Bind(Include = "Id,username,password,Name,Mobile,Address")] membersdata membersdata)
@@ -123,6 +121,22 @@ namespace ExoGym.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public async Task<ActionResult> Test(int? id)
+        {
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            membersdata membersdata = await db.membersdatas.FindAsync(id);
+            if (membersdata == null)
+            {
+                return HttpNotFound();
+            }
+            return View(membersdata);
+           
         }
       
     }
