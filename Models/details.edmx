@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="membersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="membersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="details">
           <Key>
             <PropertyRef Name="Id" />
@@ -14,12 +14,12 @@
           <Property Name="Mobile" Type="varchar" MaxLength="50" />
           <Property Name="Address" Type="varchar(max)" />
           <Property Name="Email" Type="varchar" MaxLength="50" />
+          <Property Name="MembersId" Type="int" />
         </EntityType>
         <EntityContainer Name="membersModelStoreContainer">
           <EntitySet Name="details" EntityType="Self.details" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="membersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -32,6 +32,7 @@
           <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Address" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MembersId" Type="Int32" />
         </EntityType>
         <EntityContainer Name="detailsEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="details" EntityType="Self.detail" />
@@ -45,6 +46,7 @@
           <EntitySetMapping Name="details">
             <EntityTypeMapping TypeName="membersModel.detail">
               <MappingFragment StoreEntitySet="details">
+                <ScalarProperty Name="MembersId" ColumnName="MembersId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />

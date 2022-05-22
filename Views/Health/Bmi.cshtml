@@ -11,10 +11,18 @@
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="assets/css/Pretty-Footer.css">
     <link href="cal/styles.css" rel="stylesheet" />
+    
+    <style>
+        .vl {
+            border-left: 2px solid black;
+            height: 620px;
+        }
+    </style>
+
 </head>
 
 <body>
-    <div style="color: black;background: white;display: flex;justify-content: center;align-content: center;margin-top: 51px;">
+    <div style="color: black;background: white;display: flex;justify-content: center;align-content: center;margin-top: 0px;">
 
         <div class="container" style="margin-left: 80px;margin-right: 50px;">
             <div class="content">
@@ -23,10 +31,11 @@
                 <div class="container-fluid">
                     <form class="calculate-bmi" id="form">
                         <div class="mb-3">
-                            <label for="gender">Your gender</label>
+                            <label for="gender">Gender:</label>
                             <select id="gender" required>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
+
                             </select>
                         </div>
                         <br />
@@ -55,9 +64,11 @@
                                 <option value="1.9">Extremely active</option>
                             </select>
                         </div>
+                        <br />
                         <div class="form-group-btn">
                             <button class="btn btn-info" type="submit">Calculate</button>
                             <button class="btn btn-info" type="reset">Clear</button>
+
                         </div>
                     </form>
                     <div class="result-container" id="result"></div>
@@ -65,6 +76,8 @@
 
             </div>
         </div>
+        <div class="vl"></div>
+        <div class="vl"></div>
 
         <div class="container" style="margin-left: 50px;margin-right: 80px;">
             <div role="main" class="content">
@@ -85,8 +98,10 @@
                         <br />
 
                         <input type="submit" class="btn btn-info" value="Calculate">
+
                     </form>
                 </div>
+
                 <hr>
                 <div id="results" style="margin-left: 20px;"></div>
 

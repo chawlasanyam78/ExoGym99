@@ -13,6 +13,7 @@ namespace ExoGym.Controllers
     {
         detailsEntities dm = new detailsEntities();
         // GET: Details
+
         public ActionResult Index()
         {
             var x = dm.details.ToList();
@@ -38,10 +39,26 @@ namespace ExoGym.Controllers
             }
             return View(details);
         }
-//
-  //      public ActionResult ()
-   //     {
- //           return View();
- //       }
+        [HttpGet]
+         public ActionResult Profile()
+        { 
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult Profile(detail details)
+        {
+            if (ModelState.IsValid)
+            {
+                details.MembersId = Convert.ToInt32(Session["id"].ToString());
+                dm.details.Add(details);
+                dm.SaveChanges();
+                return View("Index");
+            }
+            else
+            {
+                return HttpNotFound();
+            }
+        }
     }
-}
+    }

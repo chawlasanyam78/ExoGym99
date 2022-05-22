@@ -21,7 +21,6 @@ namespace ExoGym.Controllers
     {
         membersEntities1 db = new membersEntities1();
 
-
         public ActionResult Home()
         {
             return View();
@@ -74,7 +73,7 @@ namespace ExoGym.Controllers
             {
                 db.membersdatas.Add(membersdata);
                 db.SaveChanges();
-                return RedirectToAction("Profile");
+                return RedirectToAction("Profile","Details");
             }
             return View("Home");
         }

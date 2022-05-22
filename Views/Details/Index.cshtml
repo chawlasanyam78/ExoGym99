@@ -1,4 +1,4 @@
-﻿@model IEnumerable<ExoGym.Models.membersdata>
+﻿@model IEnumerable<ExoGym.Models.detail>
 
 @{
     ViewBag.Title = "Index";
@@ -8,23 +8,33 @@
     <tr>
  
         <th>
-            @Html.DisplayNameFor(model => model.username)
+            @Html.DisplayNameFor(model => model.Name)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.password)
+            @Html.DisplayNameFor(model => model.Mobile)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayNameFor(model => model.Address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
     </tr>
 
     @foreach (var item in ViewBag.details)
     {
         <tr>
-         
             <td>
-                @item.username
+                @item.Name
             </td>
             <td>
-                @item.password
+                @item.Mobile
+            </td>
+            <td>
+                @item.Address
+            </td>
+            <td>
+                @item.Email
             </td>
         </tr>     
     }
