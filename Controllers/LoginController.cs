@@ -15,11 +15,11 @@ using System.Web.Security;
 using System.Web.UI.WebControls;
 
 
- namespace ExoGym.Controllers
+namespace ExoGym.Controllers
 {
     public class LoginController : Controller
     {
-        membersEntities db = new membersEntities();
+        membersEntities1 db = new membersEntities1();
 
 
         public ActionResult Home()
@@ -27,14 +27,14 @@ using System.Web.UI.WebControls;
             return View();
         }
 
-        // GET: Login/Create
+        // GET: Login/Login
         [HttpGet]
         public ActionResult Login()
         {
             return View();
         }
-
-        // POST LOGIN
+        
+        // POST: Login
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Login(membersdata membersdata)
@@ -42,9 +42,9 @@ using System.Web.UI.WebControls;
             var user = db.membersdatas.Where(x => x.username == membersdata.username && x.password == membersdata.password).FirstOrDefault();
             if (user != null)
             {
-                Session["Name"] = user.Name.ToString();
+                Session["username"] = user.username.ToString();
                 Session["id"] = user.Id.ToString();
-                return View("Home");  
+                return View("Home");
             }
             else
             {
@@ -52,15 +52,60 @@ using System.Web.UI.WebControls;
                 return View();
             };
         }
-        
-       // LOGOUT
+
+        // LOGOUT
         public ActionResult Logout()
         {
             Session.Clear();
             return RedirectToAction("Home");
         }
 
-       
+        //GET: Register
+        [HttpGet]
+        public ActionResult Register()
+        {
+            return View();
+        }
+        //POST: Register
+        [HttpPost]
+        public ActionResult Register(membersdata membersdata)
+        {
+            if(ModelState.IsValid)
+            {
+                db.membersdatas.Add(membersdata);
+                db.SaveChanges();
+                return RedirectToAction("Profile");
+            }
+            return View("Home");
+        }
+        //DETAILS:
+        public ActionResult Details(int? id)
+        {
+            if (Session["id"] !=null)
+            {
+                id =Convert.ToInt32(Session["id"]);
+            }
+
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            membersdata membersdata = db.membersdatas.Find(id);
+            if(membersdata == null)
+            {
+                return HttpNotFound();
+            }
+            return View(membersdata);
+        }
+
+        //LIST  
+        public ActionResult Index()
+        {
+            var x = db.membersdatas.ToList();
+            ViewBag.details = x;
+            return View();
+        }
+           
     }
 
 }

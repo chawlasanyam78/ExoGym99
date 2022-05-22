@@ -12,10 +12,12 @@ namespace ExoGym.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class membersdata
+    public partial class detail
     {
         public int Id { get; set; }
-        public string username { get; set; }
-        public string password { get; set; }
+        public string Name { get; set; }
+        public string Mobile { get; set; }
+        public string Address { get; set; }
+        public string Email { get; set; }
     }
 }

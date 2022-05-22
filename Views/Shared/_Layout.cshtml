@@ -1,4 +1,5 @@
-﻿
+﻿@model ExoGym.Models.membersdata
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -26,22 +27,19 @@
                 </ul>
 
                 <ul class="nav navbar-nav" style="float:right!important">
-                    @if (Session["Name"] != null)
+                    <li>@Html.ActionLink("BMI","Bmi","Health")</li>
+                    @if (Session["id"] != null)
                     {
-                        @model ExoGym.Models.membersdata
-                      
-                        <li><a>@Session["id"]</a></li>
+                  
+                        <li>@Html.ActionLink(HttpContext.Current.Session["username"].ToString(), "Details", "Details")</li>
 
-                        <li>@Html.ActionLink("Profile", "Test", "membersdatas")</li>
-                        <li><a>@Session["Name"]</a></li>
                         <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                     }
 
                     else
                     {
                         <li>@Html.ActionLink("Login", "Login", "Login")</li>
-                        <li>@Html.ActionLink("Register", "Register", "membersdatas")</li>
-
+                        <li>@Html.ActionLink("Register", "Register", "Login")</li>
                     }
 
                 </ul>
