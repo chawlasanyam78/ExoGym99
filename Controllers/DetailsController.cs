@@ -12,8 +12,8 @@ namespace ExoGym.Controllers
          
     {
         detailsEntities dm = new detailsEntities();
-        // GET: Details
-
+        
+        // GET: Details List
         public ActionResult Index()
         {
             var x = dm.details.ToList();
@@ -21,32 +21,42 @@ namespace ExoGym.Controllers
             return View();
         }
 
-        public ActionResult Details(int? id)
+        public ActionResult Details(int? MembersId)
         {
             if (Session["id"] != null)
             {
-                id = Convert.ToInt32(Session["id"]);
+                MembersId = Convert.ToInt32(Session["id"]);
             }
 
-            if (id == null)
+            if (MembersId == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            detail details = dm.details.Find(id);
-            if (details == null)
+
+            var user = dm.details.Where(x => x.MembersId == MembersId).FirstOrDefault();
+            if (user == null)
             {
                 return HttpNotFound();
             }
-            return View(details);
+            else
+            {
+                var y = dm.details.ToList();
+                ViewBag.details = y;
+                return View();
+
+            }
+           // return View(details)
+
         }
+
         [HttpGet]
-         public ActionResult Profile()
+         public new ActionResult Profile()
         { 
             return View();
         }
 
         [HttpPost]
-        public ActionResult Profile(detail details)
+        public new ActionResult Profile(detail details)
         {
             if (ModelState.IsValid)
             {

@@ -9,42 +9,36 @@
 <div>
     <h4>detail</h4>
     <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
+    
+        @foreach (var item in ViewBag.details)
+        {
+            
+       <dl class="dl-horizontal">
+           <dt>
+               @Html.DisplayNameFor(model => model.Name)
+           </dt>
+           <tr>
+           <td>
+               @item.Name
+           </td>
+               </tr>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+           <dt>
+               @Html.DisplayNameFor(model => model.Mobile)
+           </dt>
+           <td>@item.Mobile</td>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Mobile)
-        </dt>
+           <dt>
+               @Html.DisplayNameFor(model => model.Address)
+           </dt>
+           <td>@item.Address</td>
 
-        <dd>
-            @Html.DisplayFor(model => model.Mobile)
-        </dd>
+           <dt>
+               @Html.DisplayNameFor(model => model.Email)
+           </dt>
+           <td>@item.Email</td>
+       </dl>
+    
+    }
+    </div>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Address)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Address)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Email)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Email)
-        </dd>
-
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>

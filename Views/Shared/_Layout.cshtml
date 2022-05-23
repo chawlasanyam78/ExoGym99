@@ -31,7 +31,7 @@
                     @if (Session["id"] != null)
                     {
                   
-                        <li>@Html.ActionLink(HttpContext.Current.Session["username"].ToString(), "Profile", "Details")</li>
+                        <li>@Html.ActionLink(HttpContext.Current.Session["username"].ToString(), "Details", "Details")</li>
 
                         <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                     }
