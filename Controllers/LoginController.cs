@@ -73,6 +73,14 @@ namespace ExoGym.Controllers
             {
                 db.membersdatas.Add(membersdata);
                 db.SaveChanges();
+
+                var user = db.membersdatas.Where(x => x.username == membersdata.username && x.password == membersdata.password).FirstOrDefault();
+                if (user != null)
+                {
+                    Session["username"] = user.username.ToString();
+                    Session["id"] = user.Id.ToString();
+                }
+
                 return RedirectToAction("Profile","Details");
             }
             return View("Home");

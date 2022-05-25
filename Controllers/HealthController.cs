@@ -13,5 +13,33 @@ namespace ExoGym.Controllers
         {
             return View();
         }
+        public ActionResult Home()
+        {
+            return View();
+        }
+
+        public ActionResult Yoga()
+        {
+            return View();
+        }
+
+        public ActionResult Heart()
+        {
+            return View();
+        }
+
+        public ActionResult Maternity()
+        {
+            return View();
+        }
+
+        public ActionResult Old()
+        {
+            return View();
+        }
+        public ActionResult Young()
+        {
+            return View();
+        }
     }
 }

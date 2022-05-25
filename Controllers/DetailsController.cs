@@ -33,15 +33,14 @@ namespace ExoGym.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
-            var user = dm.details.Where(x => x.MembersId == MembersId).FirstOrDefault();
+            var user = dm.details.Where(x => x.MembersId == MembersId).ToList();
             if (user == null)
             {
                 return HttpNotFound();
             }
             else
-            {
-                var y = dm.details.ToList();
-                ViewBag.details = y;
+            {                
+                ViewBag.Userdetails = user;
                 return View();
 
             }
@@ -63,7 +62,7 @@ namespace ExoGym.Controllers
                 details.MembersId = Convert.ToInt32(Session["id"].ToString());
                 dm.details.Add(details);
                 dm.SaveChanges();
-                return View("Index");
+                return RedirectToAction("Home", "Health");
             }
             else
             {
