@@ -65,7 +65,8 @@ namespace ExoGym.Controllers
         {
             return View();
         }
-        //POST: Register
+
+        //POST: Register WITH USERNAME PASSWORD
         [HttpPost]
         public ActionResult Register(membersdata membersdata)
         {
@@ -85,7 +86,8 @@ namespace ExoGym.Controllers
             }
             return View("Home");
         }
-        //DETAILS:
+        
+       
         public ActionResult Details(int? id)
         {
             if (Session["id"] !=null)
@@ -105,7 +107,7 @@ namespace ExoGym.Controllers
             return View(membersdata);
         }
 
-        //LIST  
+        //SHOW COMPLETE MEMBER LIST  
         public ActionResult Index()
         {
             var x = db.membersdatas.ToList();

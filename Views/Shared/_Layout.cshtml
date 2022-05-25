@@ -27,11 +27,12 @@
                 </ul>
 
                 <ul class="nav navbar-nav" style="float:right!important">
-                    <li>@Html.ActionLink("BMI","Bmi","Health")</li>
+                    <li>@Html.ActionLink("BMI", "Bmi", "Health")</li>
                     @if (Session["id"] != null)
                     {
-                  
+
                         <li>@Html.ActionLink(HttpContext.Current.Session["username"].ToString(), "Details", "Details")</li>
+                        <li>@Html.ActionLink("+", "Upload", "Image")</li>
 
                         <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                     }
@@ -50,7 +51,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p> @DateTime.Now.Year - EXOGYM PVT LTD. </p>
         </footer>
     </div>
 

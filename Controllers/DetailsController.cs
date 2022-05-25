@@ -21,6 +21,7 @@ namespace ExoGym.Controllers
             return View();
         }
 
+        // SHOW DETAILS OF LOGGED IN USER:
         public ActionResult Details(int? MembersId)
         {
             if (Session["id"] != null)
@@ -44,7 +45,7 @@ namespace ExoGym.Controllers
                 return View();
 
             }
-           // return View(details)
+           
 
         }
 
@@ -54,6 +55,7 @@ namespace ExoGym.Controllers
             return View();
         }
 
+        // ADD DETAILS TO LOGGED IN USER
         [HttpPost]
         public new ActionResult Profile(detail details)
         {
