@@ -32,7 +32,7 @@ namespace BlobStorageDemo.Controllers
                 pc.SaveChanges();
                 if (Session["link"] != null)
                 {
-                    ViewBag.pics = Convert.ToString(Session["link"]);
+                    //ViewBag.pics = Convert.ToString(Session["link"]);
                     return RedirectToAction("Home", "Health");
                 }
 
@@ -40,7 +40,8 @@ namespace BlobStorageDemo.Controllers
             }
              return View();
         }
-       
 
+
+        
     }
 }

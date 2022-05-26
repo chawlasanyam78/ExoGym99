@@ -20,5 +20,6 @@ namespace ExoGym.Models
         public string Address { get; set; }
         public string Email { get; set; }
         public int MembersId { get; internal set; }
+        public string Images { get; set; }
     }
 }

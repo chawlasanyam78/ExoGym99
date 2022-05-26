@@ -12,6 +12,7 @@ namespace ExoGym.Controllers
          
     {
         detailsEntities dm = new detailsEntities();
+        profilepicEntities pc = new profilepicEntities();
         
         // GET: Details List
         public ActionResult Index()
@@ -34,7 +35,16 @@ namespace ExoGym.Controllers
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
 
+            
             var user = dm.details.Where(x => x.MembersId == MembersId).ToList();
+
+            var profilepic = pc.profilepics.Where(x => x.MembersId == MembersId).Select(x=>x.linkpic).FirstOrDefault();
+            if (profilepic != null)
+            {
+
+                Session["link"] = profilepic;
+            }
+
             if (user == null)
             {
                 return HttpNotFound();
@@ -42,6 +52,7 @@ namespace ExoGym.Controllers
             else
             {                
                 ViewBag.Userdetails = user;
+                ViewBag.Profile = profilepic;
                 return View();
 
             }

@@ -1,9 +1,8 @@
 ﻿@model IEnumerable<ExoGym.Models.detail>
 
-<img src="@ViewBag.pics"/>
 
 <table class="table">
-    
+
     <tr>
 
         <th>
@@ -35,9 +34,17 @@
             <td>
                 @item.Email
             </td>
-            
+
         </tr>
 
     }
 
 </table>
+
+<div>
+
+   <img src="@Convert.ToString(ViewBag.Profile)" />
+
+     @*src=@HttpContext.Current.Session["link"].ToString()/>*@
+
+</div>
