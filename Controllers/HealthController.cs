@@ -41,5 +41,6 @@ namespace ExoGym.Controllers
         {
             return View();
         }
-    }
+       
+    }       
 }

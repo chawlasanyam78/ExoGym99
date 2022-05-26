@@ -43,7 +43,7 @@ namespace ExoGym.Controllers
             {
                 Session["username"] = user.username.ToString();
                 Session["id"] = user.Id.ToString();
-                return View("Home");
+                return RedirectToAction("Home", "Health");
             }
             else
             {
@@ -56,7 +56,7 @@ namespace ExoGym.Controllers
         public ActionResult Logout()
         {
             Session.Clear();
-            return RedirectToAction("Home");
+            return RedirectToAction("Home","Health");
         }
 
         //GET: Register
@@ -84,7 +84,7 @@ namespace ExoGym.Controllers
 
                 return RedirectToAction("Profile","Details");
             }
-            return View("Home");
+            return View("Home","Health");
         }
         
        

@@ -13,7 +13,7 @@ footer{
 
 .footer-navigation h3{
   margin:0;
-  font:normal 50px;
+  font:normal 36px Cookie, cursive;
   margin-bottom:20px;
   color:#fff;
 }
@@ -113,3 +113,9 @@ div.social-links{
   margin-bottom:5px;
 }
 
+pop {
+    position: absolute;
+    height: 70px;
+    right: 0;
+    left: 0;
+}

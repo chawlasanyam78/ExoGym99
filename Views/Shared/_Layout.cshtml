@@ -4,8 +4,14 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width", initial-scale="1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+
+
+    <link href="~/Content/bootstrap.min.cs" rel="stylesheet" />
+    <link href="~/Content/styles.css" rel="stylesheet" />
+    <link href="~/Content/Pretty-Footer.css" rel="stylesheet" />
+
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -13,11 +19,7 @@
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                
                 @Html.ActionLink("EXOGYM", "Home", "Health", new { area = "" }, new { @class = "navbar-brand" })
             </div>
 
@@ -29,11 +31,14 @@
                 <ul class="nav navbar-nav" style="float:right!important">
                     <li>@Html.ActionLink("BMI", "Bmi", "Health")</li>
                     @if (Session["id"] != null)
-                    {
+                    { 
+                        <li>@Html.ActionLink("Yoga", "Yoga", "Health")</li>
+                        <li>@Html.ActionLink("Meditation", "Meditation", "Health")</li>
+                        <li>@Html.ActionLink("Injuries", "Excercise", "Health")</li>
+                        <li>@Html.ActionLink("Covid", "Covid", "Health")</li>
 
                         <li>@Html.ActionLink(HttpContext.Current.Session["username"].ToString(), "Details", "Details")</li>
                         <li>@Html.ActionLink("+", "Upload", "Image")</li>
-
                         <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
                     }
 
@@ -47,6 +52,41 @@
             </div>
         </div>
     </div>
+    <footer class="nav navbar-fixed-bottom">
+            <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <h3>EXOGYM<span> </span></></h3>
+                    
+                </div>
+                <div class="col-md-4 col-sm-6 footer-contacts">
+                    <div>
+                        <span class="fa fa-map-marker footer-contacts-icon"> </span>
+                        <p>Chitkara University, Punjab</p>
+                    </div>
+                   
+                    <div>
+                        <i class="fa fa-envelope footer-contacts-icon"></i>
+                        <p> <a href="mailto:schawla1578.ca21@gmail.com">schawla1578.ca21@gmail.com,</a></p>
+                        <p> <a href="mailto:rkoranga1585.ca21@gmail.com">rkoranga1585.ca21@gmail.com</a></p>
+                    </div>
+                </div>
+                <div class="clearfix visible-sm-block"></div>
+                <div class="col-md-4 footer-about">
+                    <h4>About</h4>
+                    <p>
+                        We will help you to follow your dreams, work hard, practice and persevere. Make sure you eat a variiety of foods, get plenty of exercise and maintain a healthy lifestyle.
+                    </p>
+                    <div class="social-links social-icons">
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                        <a href="#"><i class="fa fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    
+
     <div class="container body-content">
         @RenderBody()
     </div>
