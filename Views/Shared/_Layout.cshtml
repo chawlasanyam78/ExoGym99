@@ -4,93 +4,69 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width", initial-scale="1.0">
+    <meta name="viewport" content="width=device-width" , initial-scale="1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
-
-
-    <link href="~/Content/bootstrap.min.cs" rel="stylesheet" />
-    <link href="~/Content/styles.css" rel="stylesheet" />
-    <link href="~/Content/Pretty-Footer.css" rel="stylesheet" />
-
+    <link href="~/Content/mdb.min.css" rel="stylesheet" />
+    
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
+
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
+    <nav class="navbar navbar-expand-lg navbar-expand-md navbar-expand-sm navbar-dark bg-dark">
+        <div class="container-fluid">
+            <button class="navbar-toggler"
+                    type="button"
+                    data-mdb-toggle="collapse"
+                    data-mdb-target="#navbarSupportedContent"
+                    aria-controls="navbarSupportedContent"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation">
+                <i class="fas fa-bars"></i>
+            </button>
+
+            <div class="navbar-collapse collapse" id="navbarSupportedContent">
                 
-                @Html.ActionLink("EXOGYM", "Home", "Health", new { area = "" }, new { @class = "navbar-brand" })
-            </div>
+                <a>@Html.ActionLink("EXOGYM", "Home", "Health", new { }, new {@class= "navbar-brand mt-2 mt-lg-0" })</a>
 
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <!–– Link Name,View Name,Controller Name ––>
-                </ul>
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
 
-                <ul class="nav navbar-nav" style="float:right!important">
-                    <li>@Html.ActionLink("BMI", "Bmi", "Health")</li>
+                    <li>@Html.ActionLink("BMI", "Bmi", "Health", new { }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Yoga", "Yoga", "Health", new { }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Meditation", "Meditation", "Health", new { }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Injuries", "Excercise", "Health", new { }, new { @class = "nav-link" })</li>
+                    <li>@Html.ActionLink("Covid", "Covid", "Health", new { }, new { @class = "nav-link" })</li>
+
                     @if (Session["id"] != null)
-                    { 
-                        <li>@Html.ActionLink("Yoga", "Yoga", "Health")</li>
-                        <li>@Html.ActionLink("Meditation", "Meditation", "Health")</li>
-                        <li>@Html.ActionLink("Injuries", "Excercise", "Health")</li>
-                        <li>@Html.ActionLink("Covid", "Covid", "Health")</li>
-
-                        <li>@Html.ActionLink(HttpContext.Current.Session["username"].ToString(), "Details", "Details")</li>
-                        <li>@Html.ActionLink("+", "Upload", "Image")</li>
-                        <li>@Html.ActionLink("Logout", "Logout", "Login")</li>
-                    }
-
-                    else
                     {
-                        <li>@Html.ActionLink("Login", "Login", "Login")</li>
-                        <li>@Html.ActionLink("Register", "Register", "Login")</li>
-                    }
 
+
+                        <li>@Html.ActionLink(HttpContext.Current.Session["username"].ToString(), "Details", "Details", new { }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("+", "Upload", "Image", new { }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Logout", "Logout", "Login", new { }, new { @class = "nav-link" })</li>
+                    }
+                </ul>
+              </div>
+
+             <div class="d-flex align-items-center">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    @if (Session["id"] == null)
+                    { 
+                        <li>@Html.ActionLink("Login", "Login", "Login", new { }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("Register", "Register", "Login", new { }, new { @class = "nav-link" })</li>
+
+                    }
                 </ul>
             </div>
+           
         </div>
-    </div>
-    <footer class="nav navbar-fixed-bottom">
-            <div class="row">
-                <div class="col-md-4 col-sm-6">
-                    <h3>EXOGYM<span> </span></></h3>
-                    
-                </div>
-                <div class="col-md-4 col-sm-6 footer-contacts">
-                    <div>
-                        <span class="fa fa-map-marker footer-contacts-icon"> </span>
-                        <p>Chitkara University, Punjab</p>
-                    </div>
-                   
-                    <div>
-                        <i class="fa fa-envelope footer-contacts-icon"></i>
-                        <p> <a href="mailto:schawla1578.ca21@gmail.com">schawla1578.ca21@gmail.com,</a></p>
-                        <p> <a href="mailto:rkoranga1585.ca21@gmail.com">rkoranga1585.ca21@gmail.com</a></p>
-                    </div>
-                </div>
-                <div class="clearfix visible-sm-block"></div>
-                <div class="col-md-4 footer-about">
-                    <h4>About</h4>
-                    <p>
-                        We will help you to follow your dreams, work hard, practice and persevere. Make sure you eat a variiety of foods, get plenty of exercise and maintain a healthy lifestyle.
-                    </p>
-                    <div class="social-links social-icons">
-                        <a href="#"><i class="fa fa-facebook"></i></a>
-                        <a href="#"><i class="fa fa-twitter"></i></a>
-                        <a href="#"><i class="fa fa-linkedin"></i></a>
-                        <a href="#"><i class="fa fa-github"></i></a>
-                    </div>
-                </div>
-            </div>
-        </footer>
+    </nav>
     
 
     <div class="container body-content">
         @RenderBody()
     </div>
-
+    <script src="~/Scripts/mdb.min.js"></script>
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

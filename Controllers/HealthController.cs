@@ -42,5 +42,9 @@ namespace ExoGym.Controllers
             return View();
         }
        
+        public ActionResult Covid()
+        {
+            return View();
+        }
     }       
 }

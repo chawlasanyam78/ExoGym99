@@ -378,7 +378,6 @@
     <Compile Include="Services\ImageService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -386,8 +385,6 @@
     <Content Include="Content\mdb.dark.rtl.min.css" />
     <Content Include="Content\mdb.min.css" />
     <Content Include="Content\mdb.rtl.min.css" />
-    <Content Include="Content\Pretty-Footer.css" />
-    <Content Include="Content\styles.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -593,9 +590,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\mdb.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\script.js" />
     <Content Include="Views\Health\Heart.cshtml" />
+    <Content Include="Scripts\mdb.min.js.map" />
     <None Include="Views\Health\Yoga.cshtml" />
     <None Include="Views\Health\Maternity.cshtml" />
     <None Include="Views\Health\Old.cshtml" />
