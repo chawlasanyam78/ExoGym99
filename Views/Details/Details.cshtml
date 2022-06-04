@@ -34,7 +34,9 @@
             <td>
                 @item.Email
             </td>
-           
+            <td>
+                <img src="@Convert.ToString(ViewBag.Profile)" class="img-fluid rounded-pill" style="width:80px;height:auto" />
+            </td>
         </tr>
 
     }
@@ -43,7 +45,7 @@
 
 <div>
 
-   <img src="@Convert.ToString(ViewBag.Profile)" />
+   
 
      @*src=@HttpContext.Current.Session["link"].ToString()/>*@
 

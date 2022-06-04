@@ -593,12 +593,19 @@
     <Content Include="Scripts\mdb.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\script.js" />
+    <None Include="Views\Health\Gym.cshtml" />
+    <None Include="Views\Health\Cycling.cshtml" />
+    <None Include="Views\Health\Dance.cshtml" />
+    <Content Include="Views\Health\Meditation.cshtml" />
+    <None Include="Views\Health\Sports.cshtml" />
     <Content Include="Views\Health\Heart.cshtml" />
     <Content Include="Scripts\mdb.min.js.map" />
+    <Content Include="Views\Health\Injuries.cshtml" />
     <None Include="Views\Health\Yoga.cshtml" />
     <None Include="Views\Health\Maternity.cshtml" />
     <None Include="Views\Health\Old.cshtml" />
     <None Include="Views\Health\Young.cshtml" />
+    <None Include="Views\Health\Covid.cshtml" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

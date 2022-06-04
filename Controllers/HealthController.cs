@@ -46,5 +46,29 @@ namespace ExoGym.Controllers
         {
             return View();
         }
+        public ActionResult Sports()
+        {
+            return View();
+        }
+        public ActionResult Gym()
+        {
+            return View();
+        }
+        public ActionResult Dance()
+        {
+            return View();
+        }
+        public ActionResult Cycling()
+        {
+            return View();
+        }
+        public ActionResult Injuries()
+        {
+            return View();
+        }
+        public ActionResult Meditation()
+        {
+            return View();
+        }
     }       
 }
