@@ -12,13 +12,12 @@ namespace ExoGym.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class detail
+    public partial class subscription
     {
         public int Id { get; set; }
-        public string Name { get; set; }
-        public string Mobile { get; set; }
-        public string Address { get; set; }
-        public string Email { get; set; }
+        public Nullable<System.DateTime> startdate { get; set; }
+        public Nullable<System.DateTime> enddate { get; set; }
         public Nullable<int> MembersId { get; set; }
+        public string packagename { get; set; }
     }
 }

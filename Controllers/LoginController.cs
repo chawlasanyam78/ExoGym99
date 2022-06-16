@@ -19,7 +19,7 @@ namespace ExoGym.Controllers
 {
     public class LoginController : Controller
     {
-        membersEntities1 db = new membersEntities1();
+        loginEntities db = new loginEntities();
 
         public ActionResult Home()
         {

@@ -205,6 +205,7 @@
     <Reference Include="System.ComponentModel.Annotations, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.ComponentModel.Annotations.4.5.0\lib\net461\System.ComponentModel.Annotations.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
@@ -217,6 +218,11 @@
     <Reference Include="System.Numerics" />
     <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.1\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>packages\System.Runtime.CompilerServices.Unsafe.5.0.0\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
@@ -338,23 +344,23 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>details.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\login.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>login.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\login.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>login.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\login.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>login.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\membersdata.cs">
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model2.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model2.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Model2.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model2.edmx</DependentUpon>
+      <DependentUpon>login.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\profilepic.Context.cs">
       <AutoGen>True</AutoGen>
@@ -374,6 +380,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>profilepic.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\subscription.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>subscription.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subscription.cs">
+      <DependentUpon>subscription.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subscription.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>subscription.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\subscription1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>subscription.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\ImageService.cs" />
   </ItemGroup>
@@ -385,11 +409,11 @@
     <Content Include="Content\mdb.dark.rtl.min.css" />
     <Content Include="Content\mdb.min.css" />
     <Content Include="Content\mdb.rtl.min.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome.min.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
-    <Content Include="Content\Site.css" />
     <Content Include="img\1.jpg" />
     <Content Include="img\10.jpg" />
     <Content Include="img\2.jpg" />
@@ -533,15 +557,15 @@
       <DependentUpon>details.edmx</DependentUpon>
       <LastGenOutput>details.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model2.Context.tt">
+    <Content Include="Models\login.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.Context.cs</LastGenOutput>
+      <DependentUpon>login.edmx</DependentUpon>
+      <LastGenOutput>login.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model2.tt">
+    <Content Include="Models\login.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model2.edmx</DependentUpon>
-      <LastGenOutput>Model2.cs</LastGenOutput>
+      <DependentUpon>login.edmx</DependentUpon>
+      <LastGenOutput>login.cs</LastGenOutput>
     </Content>
     <Content Include="Models\profilepic.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -553,14 +577,32 @@
       <DependentUpon>profilepic.edmx</DependentUpon>
       <LastGenOutput>profilepic1.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\subscription.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>subscription.edmx</DependentUpon>
+      <LastGenOutput>subscription.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\subscription.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>subscription.edmx</DependentUpon>
+      <LastGenOutput>subscription1.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
-    <EntityDeploy Include="Models\Model2.edmx">
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\mdb.dark.min.css.map" />
+    <Content Include="Content\mdb.dark.rtl.min.css.map" />
+    <Content Include="Content\mdb.min.css.map" />
+    <Content Include="Content\mdb.rtl.min.css.map" />
+    <EntityDeploy Include="Models\login.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model2.Designer.cs</LastGenOutput>
+      <LastGenOutput>login.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model2.edmx.diagram">
-      <DependentUpon>Model2.edmx</DependentUpon>
+    <Content Include="Models\login.edmx.diagram">
+      <DependentUpon>login.edmx</DependentUpon>
     </Content>
     <EntityDeploy Include="Models\details.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -576,10 +618,13 @@
     <Content Include="Models\profilepic.edmx.diagram">
       <DependentUpon>profilepic.edmx</DependentUpon>
     </Content>
-    <Content Include="Content\mdb.dark.min.css.map" />
-    <Content Include="Content\mdb.dark.rtl.min.css.map" />
-    <Content Include="Content\mdb.min.css.map" />
-    <Content Include="Content\mdb.rtl.min.css.map" />
+    <EntityDeploy Include="Models\subscription.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>subscription.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\subscription.edmx.diagram">
+      <DependentUpon>subscription.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -606,13 +651,6 @@
     <None Include="Views\Health\Old.cshtml" />
     <None Include="Views\Health\Young.cshtml" />
     <None Include="Views\Health\Covid.cshtml" />
-    <Content Include="Web.config" />
-    <Content Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
-    <Content Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
-    </Content>
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
@@ -630,6 +668,13 @@
     <Content Include="Views\Health\Home.cshtml" />
     <Content Include="Views\Image\Upload.cshtml" />
     <Content Include="Views\Login\Home.cshtml" />
+    <Content Include="Web.Config" />
+    <None Include="Web.Debug.Config">
+      <DependentUpon>Web.Config</DependentUpon>
+    </None>
+    <None Include="Web.Release.Config">
+      <DependentUpon>Web.Config</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -640,10 +685,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
-    <Content Include="Content\bootstrap.min.css.map" />
-    <Content Include="Content\bootstrap.css.map" />
-    <Content Include="Content\bootstrap-theme.min.css.map" />
-    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />

@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="membersModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="detailsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="details">
           <Key>
             <PropertyRef Name="Id" />
@@ -16,13 +16,14 @@
           <Property Name="Email" Type="varchar" MaxLength="50" />
           <Property Name="MembersId" Type="int" />
         </EntityType>
-        <EntityContainer Name="membersModelStoreContainer">
+        <EntityContainer Name="detailsModelStoreContainer">
           <EntitySet Name="details" EntityType="Self.details" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="membersModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="detailsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="detail">
           <Key>
             <PropertyRef Name="Id" />
@@ -42,16 +43,16 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="membersModelStoreContainer" CdmEntityContainer="detailsEntities">
+        <EntityContainerMapping StorageEntityContainer="detailsModelStoreContainer" CdmEntityContainer="detailsEntities">
           <EntitySetMapping Name="details">
-            <EntityTypeMapping TypeName="membersModel.detail">
+            <EntityTypeMapping TypeName="detailsModel.detail">
               <MappingFragment StoreEntitySet="details">
-                <ScalarProperty Name="MembersId" ColumnName="MembersId" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Mobile" ColumnName="Mobile" />
                 <ScalarProperty Name="Address" ColumnName="Address" />
                 <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="MembersId" ColumnName="MembersId" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

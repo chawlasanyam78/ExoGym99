@@ -4,46 +4,52 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="profilepicModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
-        <EntityType Name="profilepic">
+      <Schema Namespace="subscriptionModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="subscription">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="linkpic" Type="varchar(max)" Nullable="false" />
+          <Property Name="startdate" Type="date" />
+          <Property Name="enddate" Type="date" />
           <Property Name="MembersId" Type="int" />
+          <Property Name="packagename" Type="nvarchar" MaxLength="255" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="profilepicModelStoreContainer">
-          <EntitySet Name="profilepic" EntityType="Self.profilepic" Schema="dbo" store:Type="Tables" />
+        <EntityContainer Name="subscriptionModelStoreContainer">
+          <EntitySet Name="subscription" EntityType="Self.subscription" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="profilepicModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="profilepic">
+      <Schema Namespace="subscriptionModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="subscription">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="linkpic" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="startdate" Type="DateTime" Precision="0" />
+          <Property Name="enddate" Type="DateTime" Precision="0" />
           <Property Name="MembersId" Type="Int32" />
+          <Property Name="packagename" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
         </EntityType>
-        <EntityContainer Name="profilepicEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="profilepics" EntityType="Self.profilepic" />
+        <EntityContainer Name="subscriptionEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="subscriptions" EntityType="Self.subscription" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="profilepicModelStoreContainer" CdmEntityContainer="profilepicEntities">
-          <EntitySetMapping Name="profilepics">
-            <EntityTypeMapping TypeName="profilepicModel.profilepic">
-              <MappingFragment StoreEntitySet="profilepic">
+        <EntityContainerMapping StorageEntityContainer="subscriptionModelStoreContainer" CdmEntityContainer="subscriptionEntities">
+          <EntitySetMapping Name="subscriptions">
+            <EntityTypeMapping TypeName="subscriptionModel.subscription">
+              <MappingFragment StoreEntitySet="subscription">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="linkpic" ColumnName="linkpic" />
+                <ScalarProperty Name="startdate" ColumnName="startdate" />
+                <ScalarProperty Name="enddate" ColumnName="enddate" />
                 <ScalarProperty Name="MembersId" ColumnName="MembersId" />
+                <ScalarProperty Name="packagename" ColumnName="packagename" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

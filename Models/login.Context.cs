@@ -13,10 +13,10 @@ namespace ExoGym.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class membersEntities1 : DbContext
+    public partial class loginEntities : DbContext
     {
-        public membersEntities1()
-            : base("name=membersEntities1")
+        public loginEntities()
+            : base("name=loginEntities")
         {
         }
     
