@@ -323,6 +323,7 @@
     <Compile Include="Controllers\HealthController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
+    <Compile Include="Controllers\subscriptionsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -669,6 +670,11 @@
     <Content Include="Views\Image\Upload.cshtml" />
     <Content Include="Views\Login\Home.cshtml" />
     <Content Include="Web.Config" />
+    <Content Include="Views\subscriptions\Create.cshtml" />
+    <Content Include="Views\subscriptions\Delete.cshtml" />
+    <Content Include="Views\subscriptions\Details.cshtml" />
+    <Content Include="Views\subscriptions\Edit.cshtml" />
+    <Content Include="Views\subscriptions\PaymentSuccessful.cshtml" />
     <None Include="Web.Debug.Config">
       <DependentUpon>Web.Config</DependentUpon>
     </None>
